@@ -1,0 +1,43 @@
+{
+  "name": "storefront-backend",
+  "version": "1.0.0",
+  "description": "Storefront backend API built with Node, Express, TypeScript, PostgreSQL, JWT, Jasmine, and db-migrate.",
+  "main": "build/server.js",
+  "scripts": {
+    "build": "npx tsc",
+    "watch": "tsc-watch --onSuccess \"node build/server.js\"",
+    "start": "node build/server.js",
+    "lint": "echo 'No linter configured'",
+    "test": "set NODE_ENV=test&& db-migrate up --env test && jasmine && db-migrate reset --env test",
+    "test:win": "set NODE_ENV=test&& db-migrate up --env test && jasmine && db-migrate reset --env test",
+    "migrate:up": "db-migrate up",
+    "migrate:down": "db-migrate down",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/body-parser": "^1.19.5",
+    "@types/express": "^5.0.0",
+    "@types/jasmine": "^5.1.4",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.10.1",
+    "@types/pg": "^8.11.10",
+    "@types/supertest": "^6.0.3",
+    "jasmine": "^5.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.7.2"
+  }
+}
